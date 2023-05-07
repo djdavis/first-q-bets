@@ -2,13 +2,47 @@
 
 This Python script generates all possible combinations of over/under decisions for a given set of players. The output is saved to a Markdown file, which can be viewed in a text editor or rendered as a table in a Markdown viewer.
 
+Gambling is fun, but not encouraged. Use at your own risk. 
+
+U - under
+O - over
+
+You can use this script to know what all of the possible parlay combinations are, given your input.
+
+# Example Input/Output
+
+### Line 5:
+`players = ["Jokic", "Murray", "Porter", "Booker", "Durant", "Ayton", "Points"]`
+
+### Output:
+
+| Players | Decision |
+|-----| -------- |
+| Jokic | U |
+| Murray | O |
+| Porter | U |
+| Booker | U |
+| Durant | U |
+| Ayton | U |
+| Points | O |
+| ------- | -------- |
+| Jokic | U |
+| Murray | U |
+| Porter | U |
+| Booker | O |
+| Durant | O |
+| Ayton | O |
+| Points | O |
+... and so on
+
 ## Usage
 
 1. Download the `first_quarter_possibilities.py` file.
-2. Open a terminal or command prompt.
-3. Navigate to the directory where the `first_quarter_possibilities.py` file is located.
-4. Run the script using the command `python first_quarter_possibilities.py`.
-5. Follow the prompts to enter the name of the output file and whether to randomize the output.
+2. Modify the list of "players" on line 5. "Points" is in this list because I also bet the over/under on 1st quarter points.
+3. Open a terminal or command prompt.
+4. Navigate to the directory where the `first_quarter_possibilities.py` file is located.
+5. Run the script using the command `python first_quarter_possibilities.py`.
+6. Follow the prompts to enter the name of the output file and whether to randomize the output.
 
 ## Explanation
 
