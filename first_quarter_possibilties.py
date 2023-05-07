@@ -1,7 +1,7 @@
 import os
 from itertools import product
 
-players = ["Tatum", "Brown", "Embiid", "Harden", "Maxey", "Points"]
+players = ["Jokic", "Murray", "Porter", "Booker", "Durant", "Ayton", "Points"]
 decisions = ["O", "U"]
 
 # Generate all possible combinations of decisions for each player
@@ -28,4 +28,6 @@ output_filepath = os.path.join("2023", output_filename + ".md")
 with open(output_filepath, "w") as f:
     f.write(output)
 
+# Print the count of possibilities
+print("Number of possibilities:", len(combos))
 print("Output saved to {}".format(output_filepath))
