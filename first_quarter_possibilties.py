@@ -17,31 +17,23 @@ if randomize_output:
 
 total_combos = len(combos)
 
-# Add header row to the table
-output = "<table style='border-collapse: collapse;'>\n<tr style='background-color: #f2f2f2;'><th>Selection</th><th>Players</th><th>Decision</th></tr>\n"
+# Print header row
+output = "| Players | Decision |\n| ------- | -------- |\n"
 
 # Add each possible combination as a row in the table
-for i, combo in enumerate(combos):
-    rows = ["<td><input type='checkbox' name='selection' value='{0}'></td>".format(i + 1)]
-    rows += ["<td>{0}</td><td>{1}</td>".format(player, decision) for player, decision in zip(players, combo)]
-    output += "<tr style='border: 1px solid black;'>{0}</tr>\n".format("".join(rows))
-
-    # Add separator every 10 rows
-    if i % 10 == 9:
-        output += "<tr style='border: none; height: 10px;'></tr>\n"
-
-# Close the table
-output += "</table>"
+for combo in combos:
+    rows = ["| {} | {} |\n".format(player, decision) for player, decision in zip(players, combo)]
+    output += "".join(rows) + "| ------- | -------- |\n"
 
 # Get output file name from user
-output_filename = input("Enter the name of the output file (without .html extension): ")
+output_filename = input("Enter the name of the output file (without .md extension): ")
 
 # Create 2023 directory if it doesn't exist
 if not os.path.exists("2023"):
     os.mkdir("2023")
 
 # Save output to file in 2023 directory
-output_filepath = os.path.join("2023", output_filename + ".html")
+output_filepath = os.path.join("2023", output_filename + ".md")
 with open(output_filepath, "w") as f:
     f.write(output)
 
