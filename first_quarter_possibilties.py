@@ -1,3 +1,4 @@
+import os
 from itertools import product
 
 players = ["Tatum", "Brown", "Embiid", "Harden", "Maxey", "Points"]
@@ -15,11 +16,16 @@ for combo in combos:
     rows = ["| {} | {} |\n".format(player, decision) for player, decision in zip(players, combo)]
     output += "".join(rows) + "| ------- | -------- |\n"
 
-# Print count of possible variations
-print("Total possible variations: {}".format(total_combos))
+# Get output file name from user
+output_filename = input("Enter the name of the output file (without .md extension): ")
 
-# Save output to file
-with open("possible_variations.md", "w") as f:
+# Create 2023 directory if it doesn't exist
+if not os.path.exists("2023"):
+    os.mkdir("2023")
+
+# Save output to file in 2023 directory
+output_filepath = os.path.join("2023", output_filename + ".md")
+with open(output_filepath, "w") as f:
     f.write(output)
 
-print("Output saved to possible_variations.md")
+print("Output saved to {}".format(output_filepath))
