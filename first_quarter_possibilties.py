@@ -1,11 +1,20 @@
 import os
+import random
 from itertools import product
 
 players = ["Jokic", "Murray", "Porter", "Booker", "Durant", "Ayton", "Points"]
 decisions = ["O", "U"]
 
+# Get user input for whether to randomize output or not
+randomize_output = input("Do you want to randomize the output? (y/n): ").lower() == "y"
+
 # Generate all possible combinations of decisions for each player
 combos = list(product(decisions, repeat=len(players)))
+
+# Optionally shuffle the combos list randomly
+if randomize_output:
+    random.shuffle(combos)
+
 total_combos = len(combos)
 
 # Print header row
