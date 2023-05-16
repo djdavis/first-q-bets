@@ -1,9 +1,13 @@
 import os
 import random
+import datetime
 from itertools import product
 
-players = ["Jokic", "Murray", "Porter", "Booker", "Durant", "Ayton", "Points"]
+players = ["Harden","Embiid", "Smart",
+           "Brown", "Maxey", "Points"]
 decisions = ["O", "U"]
+current_year = str(datetime.date.today().year)
+
 
 # Get user input for whether to randomize output or not
 randomize_output = input("Do you want to randomize the output? (y/n): ").lower() == "y"
@@ -29,11 +33,11 @@ for combo in combos:
 output_filename = input("Enter the name of the output file (without .md extension): ")
 
 # Create 2023 directory if it doesn't exist
-if not os.path.exists("2023"):
-    os.mkdir("2023")
+if not os.path.exists(current_year):
+    os.mkdir(current_year)
 
 # Save output to file in 2023 directory
-output_filepath = os.path.join("2023", output_filename + ".md")
+output_filepath = os.path.join(current_year, output_filename + ".md")
 with open(output_filepath, "w") as f:
     f.write(output)
 
